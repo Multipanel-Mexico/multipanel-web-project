@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html xml:lang="en" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Multipanel | Impulsando tus projectos</title>
+    <meta name="keywords" content="" />
+    <meta name="description"
+        content="Multipaneles es una empresa comercializadora de construccion con generaciones dedicadas a grandes proyectos" />
+    <link rel="shortcut icon" type="image/png"
+        href="/home/jaen/Documents/Projects/Turner_web_Local/www.turnerconstruction.com/assets/images/M_Multipanel.png" />
+    <link rel="stylesheet" href="/home/jaen/Documents/Projects/Multipanel/Multipanel/css/index.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-container-logo">
+            <a href="/" class="light-header">
+                <img class="header-image-logo" src="assets/M_Multipanel.png" alt="Turner" width="133" height="37"></a>
+        </div>
+        <div class="menu">
+            <div class="menu-element">
+                <a class="menu-element-data" href="#" data-page="us">
+                    Nosotros
+                </a>
+            </div>
+            <div class="menu-element">
+                <a class="menu-element-data" href="#" data-page="products">
+                    Productos
+                </a>
+            </div>
+            <div class="menu-element">
+                <a class="menu-element-data" href="#" data-page="experience">
+                    Nuestra Experiencia
+                </a>
+            </div> 
+            <div class="menu-element">
+                <a class="menu-element-data" href="#" data-page="work">
+                    Work with us!
+                </a>
+            </div>
+        </div>
+    </header>
+    <div class="principal-container">
+        <div class="page active" id="us">
+            <h2>About Us</h2>
+            <p>Información sobre nosotros...</p>
+        </div>
+
+        <div class="page" id="products">
+            <h2>Products</h2>
+            <p>Listado de productos...</p>
+        </div>
+
+        <div class="page" id="experience">
+            <h2>Experience</h2>
+            <p>Nuestra experiencia en el mercado...</p>
+        </div>
+
+        <div class="page" id="workwithus">
+            <h2>Work With Us</h2>
+            <p>Oportunidades laborales...</p>
+        </div>
+    </div>
+    <footer class="footer-container">
+        <div class="footer-elemento-inicial">
+            © Multipanel Mexico - Derechos Reservados
+        </div>
+        <div class="footer-elemento-secundario">
+            <a href="/" class="light-header">
+                <img class="social-media-link" src="assets/YoutubeLogo.svg" alt="YouTube"></a>
+            <a href="/" class="light-header">
+                <img class="social-media-link" src="assets/InstagramLogo.svg" alt="Instagram"></a>
+            <a href="/" class="light-header">
+                <img class="social-media-link" src="assets/TwitterLogo.svg" alt="X"></a>
+            <a href="/" class="light-header">
+                <img class="social-media-link" src="assets/LinkedinLogo.svg" alt="Linkedin"></a>
+        </div>
+    </footer>
+    <script>
+        const links = document.querySelectorAll(".menu-element-data")
+        const pages = document.querySelectorAll(".page")
+
+        links.forEach(link => {
+            link.addEventListener("click", (e) => {
+                e.preventDefault();
+                const pageId = link.getAttribute("data-page");
+
+                //oculta la pagina activa actual
+                const current = document.querySelector(".page.active");
+                if (current) {
+                    current.classList.remove("active");
+                    current.style.opacity = 0;
+
+                    setTimeout(() => {
+                        current.style.display = "none";
+
+                        //mostrar nueva pagina
+                        const next = document.getElementById(pageId);
+                        next.style.display = "block"
+
+                        //transicion
+                        setTimeout(() => {
+                            next.classList.add("active");
+                            next.style.opacity = 1;
+                        }, 50);
+                    }, 300);
+                }
+            });
+        }); 
+    </script>
+</body>
+</html>
+
+<!-- 
+        PENDIENTE - terminar imagen
+        PENDIENTE - mostrar secuencia de imagenes de trabajo
+        PENDIENTE - mostrar cambio de elementos del home
+        PENDIENTE - contenido indexable en google
+-->
