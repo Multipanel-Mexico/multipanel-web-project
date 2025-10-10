@@ -1,0 +1,135 @@
+html,
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: #fff;
+  font-weight: 400;
+}
+
+.header {
+    height: 8vh;
+    background-color: bisque;
+    display: flex;
+    justify-content: space-between;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+}
+
+.header-container-logo {
+  background-color: red;
+  width: 15%;
+  height: 100%;
+}
+
+.menu {
+  width: 27%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 1px;
+  margin-right: min(5%, 100px);
+  max-width: 510px;
+}
+
+.menu-element {
+  color: white;
+  text-decoration: none;
+  background-color: aliceblue;
+  justify-content: center;
+  align-content: center;
+}
+
+.menu-element-data {
+  padding: 1px 10px;
+  text-decoration: none;
+}
+
+.menu-element-data {
+  position: relative;
+  display: inline-block; /* importante para que el ::before se ajuste al enlace */
+  text-decoration: none;
+  color: #17171B; /* texto normal */
+  padding: 20px 15px; /* altura y espacio lateral */
+}
+
+/* Línea superior oculta inicialmente */
+.menu-element-data::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 3px;                /* grosor de la línea */
+  width: 100%;
+  background-color: #0B5DD0;  /* color de la línea */
+  transform: scaleX(0);       /* oculta (comprimida en ancho) */
+  transform-origin: left;     /* crecerá de izquierda a derecha */
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Al hacer hover → la línea aparece progresivamente */
+.menu-element-data:hover::before {
+  transform: scaleX(1);
+}
+
+.principal-container {
+  background-color: aqua;
+  width: 100vw;
+  height: 84vh;
+  position: relative; /* necesario para que position:absolute funcione bien */
+  min-height: 200px;  /* para no colapsar cuando no hay contenido */
+}
+
+.footer-container {
+  height: 8vh;
+  width: 100vw;
+  background-color: #0B5DD0;
+  display: flex;
+}
+
+.footer-elemento-inicial{
+width:60%;
+display: flex;
+justify-content: right;
+text-align: center;
+align-items: center;
+}
+
+.footer-elemento-secundario{
+width: 40%;
+text-align: right;
+height: 100%;
+display: flex;
+align-items: center;
+justify-content: right;
+}
+
+.light-header{
+  width: 12%;
+  height: 50%;
+  margin-right: 15px;
+}
+
+.social-media-link{
+  width: 100%;
+  height: 100%;
+}
+
+.page {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  position: absolute; /* para que se superpongan durante la animación */
+  width: 100%;
+}
+
+/* La página activa */
+.page.active {
+  display: block;
+  opacity: 1;
+  position: relative;
+}
